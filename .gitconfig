@@ -1,0 +1,62 @@
+[core]
+	editor = subl -n -w
+	autocrlf = input
+	excludesfile = /Users/mika/dotfiles/.gitignore_global
+[user]
+	name = Mika Marttila
+	email = mika@oranssi.org
+[alias]
+	st = status -sb
+	ci = commit
+	co = checkout
+	br = branch
+	lbr = branch -a
+	lbrv = branch -lvvv
+	gren = grep -n
+	lg = log -p
+	staged = diff --cached
+	cached = diff --cached
+	unstaged = diff
+	both = diff HEAD
+	oneline = log --pretty=oneline
+	amend = commit --amend
+	rull = pull --rebase
+	cp = cherry-pick -x
+	ch = cherry -v
+	fetcha = fetch --all
+	sh = stash
+	shp = stash pop
+[color]
+	ui = true
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+[push]
+	default = tracking
+[rebase]
+	stat = true
+[interactive]
+	singlekey = true
+
+# P4MERGE
+[merge]
+    tool = lolmerge # This will be the default merge tool invoked by git mergetool.
+[mergetool]
+  keepBackup = false
+  keepTemporaries = false
+[mergetool "lolmerge"]
+  # I put p4merge and DiffMerge in /Applications/Utilities, but you might have them in /Applications.
+  cmd = /opt/homebrew-cask/Caskroom/p4merge/2014.2/p4merge.app/Contents/Resources/launchp4merge \
+      "$PWD/$BASE" \
+      "$PWD/$REMOTE" \
+      "$PWD/$LOCAL" \
+      "$PWD/$MERGED"
+  keepBackup = false
+  trustExitCode = false
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Users/mika/Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
