@@ -1,0 +1,24 @@
+#!/bin/bash
+
+echo -e "$ git status\n"
+git status
+
+echo ""
+read -p "Press [Enter] to continue or [^C] to cancel"
+
+echo -e "$ git branch\n"
+git branch
+
+echo ""
+read -p "Press [Enter] to continue or [^C] to cancel"
+
+echo -e "$ git stash list\n"
+git stash list -p
+
+echo ""
+read -p "Press [Enter] to continue or [^C] to cancel"
+
+echo ""
+read -p "Clear stash? [Enter] to continue or [^C] to cancel"
+
+git stash clear

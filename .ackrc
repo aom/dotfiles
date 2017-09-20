@@ -1,0 +1,15 @@
+--type-add=ruby=.haml
+--type-add=js=.ejs,.coffee
+--type-set=coffee=.coffee
+--type-add=css=.less,.sass,.scss
+--type-add=objc=.pch
+--type-set=xcode=.pbxproj,.pbxuser,.perspectivev3
+--type-set=ragel=.rl
+--type-set=nib=.xib
+--type-set=plist=.plist
+--type-set=tmstuff=.tmproj,.tm_build_errors
+--type-set=groovy=.groovy
+--nonib
+--notmstuff
+--noxcode
+--ignore-dir=target

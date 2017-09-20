@@ -1,0 +1,38 @@
+#!/usr/bin/env sh
+
+# TODO: Pick which envs to share if not all
+
+if [ $# -eq 0 ]
+then
+  echo "Sources all remotes from your pwd and shares access to given"
+  echo "email addresses in Heroku. Usage:"
+  echo "  heroku-share <email>[ <email> <email>]"
+  exit 1
+fi
+
+ALL_EMAILS=( "$@" )
+ALL_APPS=( $(git remote -v | grep -o 'heroku\.com\:[a-z0-9\-]\+\.git\s(push)' | sed 's/heroku\.com\://' | sed 's/\.git (push)//') )
+HEROKU_USER=`heroku auth:whoami`
+
+echo "Share apps: ${ALL_APPS[@]}"
+echo "To: ${ALL_EMAILS[@]}"
+echo "As user: $HEROKU_USER"
+
+if [ "${#ALL_APPS[@]}" -eq 0 -o "${#ALL_EMAILS[@]}" -eq 0 -o "$HEROKU_USER" = "" ]
+then
+  echo -e "\nPlz add emails or apps and signin to Heroku toolbelt with right account!"
+  exit 1
+fi
+
+read -p "Press [Enter] to confirm or [^C] to cancel"
+echo ""
+
+for app in "${ALL_APPS[@]}"
+do
+  for email in "${ALL_EMAILS[@]}"
+  do
+    heroku sharing:add $email --app $app
+  done
+done
+
+# TODO: Damn. I could've just used -r production | staging convention instead of that grep sed sed thing
