@@ -96,3 +96,8 @@ color-me-rainbow () {
   done
   echo ""
 }
+
+# chmod
+
+alias chx="chmod u+x $@"
+alias chxg="chmod +x $@"
