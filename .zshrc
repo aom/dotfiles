@@ -90,3 +90,11 @@ export PATH="$PATH:$DOTFILES/bin"
 # yarn
 
 export PATH="$PATH:`yarn global bin`"
+
+# Docker Hub
+
+export DOCKER_ID_USER="aarreoskari"
+
+# Docker Machine
+
+# eval $(docker-machine env vm)
