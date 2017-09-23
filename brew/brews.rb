@@ -61,38 +61,25 @@ end
 
 brew 'git'
 
-brew 'postgresql'
-brew 'redis'
-brew 'mongodb'
+brew ['postgresql', 'redis', 'mongodb']
 
 brew 'imagemagick'
 
 brew ['youtube-dl', 'ffmpeg']
 
-unless mode == 'reinstall'
-  system_verbose 'sudo chmod u+s /usr/bin/easy_install'
-  system_verbose 'sudo chown root:wheel /usr/bin/easy_install'
-  system_verbose 'sudo easy_install pip'
-  system_verbose 'sudo pip install pycrypto'
-  system_verbose 'ln -sf /usr/bin/python2.7 /usr/local/bin/python2'
-end
 brew 'yle-dl'
 
-puts 'Tapping brew to homebrew/dupes with sudo'
-system_verbose 'sudo brew tap homebrew/dupes'
-brew 'homebrew/dupes/rsync'
+#puts 'Tapping brew to homebrew/dupes with sudo'
+#system_verbose 'sudo brew tap homebrew/dupes'
+brew 'rsync'
 
 brew 'wget'
 brew 'heroku-toolbelt'
 
-brew 'node'
-# brew 'pow'
-# brew 'cairo'
-# brew 'fontforge'
 brew 'httpie'
 
 brew 'htop-osx'
 
 puts 'Setting suid for htop'
-system_verbose 'sudo chown root:wheel /usr/local/Cellar/htop-osx/0.8.2.2/bin/htop'
-system_verbose 'sudo chmod u+s /usr/local/Cellar/htop-osx/0.8.2.2/bin/htop'
+system_verbose 'sudo chown root:wheel `which htop`'
+system_verbose 'sudo chmod u+s `which htop`'
