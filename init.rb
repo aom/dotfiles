@@ -19,6 +19,13 @@ def yes_or_no(message)
   end
 end
 
+def answer(message)
+  puts
+  puts message
+  puts '💋 type and [enter] or ^C'
+  gets
+end
+
 puts 'Install these before running this:'
 %w[
   XCode
@@ -92,6 +99,11 @@ system 'apm install sync-settings'
 confirm 'Atom will ask sync-settings Token and Gist Id. You can do this later.'
 puts
 
+puts '🍎 -- Install IntelliJ IDEA'
+system 'open https://www.jetbrains.com/idea/download/download-thanks.html?platform=mac'
+confirm 'Download and install manually'
+puts
+
 puts '🍎 -- Install Chrome'
 system 'open https://www.google.com/chrome/index.html'
 confirm 'Download and install manually'
@@ -120,6 +132,36 @@ puts
 puts '🍎 -- Install Kontena CLI:'
 system 'open https://github.com/kontena/kontena/releases/latest'
 confirm 'Download and install manually'
+puts
+
+puts '🍎 -- Install Spotify:'
+system 'open https://www.spotify.com/fi/download/mac/'
+confirm 'Download and install manually'
+puts
+
+puts '🍎 -- Install Postico:'
+system 'open https://eggerapps.at/postico/download/'
+confirm 'Download and install manually'
+puts
+
+puts '🍎 -- Install Google Cloud SDK:'
+system 'open https://cloud.google.com/sdk/docs/quickstart-mac-os-x'
+confirm 'Download and install manually to a specific place on disk'
+puts
+
+puts '🍎 -- Install Java:'
+system 'open https://www.java.com/en/download/mac_download.jsp'
+confirm 'Download and install manually'
+puts
+
+puts '🍎 -- Install ngrok:'
+system 'open https://ngrok.com/download'
+confirm 'Download and unzip to downloads'
+system 'mv ~/Downloads/ngrok /usr/local/bin/ngrok'
+if yes_or_no 'Do ngrok authentication now?'
+  authtoken = answer 'Type ngrok authtoken'
+  system "ngrok authtoken #{authtoken}"
+end
 puts
 
 if yes_or_no '🔴 Do you want to install VM tools?'

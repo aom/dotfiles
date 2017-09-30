@@ -101,3 +101,35 @@ color-me-rainbow () {
 
 alias chx="chmod u+x $@"
 alias chxg="chmod +x $@"
+
+# sync git ignored files from another computer
+
+sync-code-repo () {
+  echo "Usage: sync-code-repo <target host or ip> <file1> [<file2> ...]"
+  echo ""
+
+  pwd=$(pwd)
+  if [ $pwd =~ .*\/code\/.* ]; then
+    echo "Syncing from $pwd"
+  else
+    echo "You should not run this outside ~/code"
+    exit
+  fi
+
+  host=$1
+  whoami=$(whoami)
+
+  i=0
+  for file in $@; do
+    if [ $i -ne 0 ]; then
+      scp $whoami@$host:$pwd/$file $file
+    fi
+
+    if [ $? -ne 0 ]; then
+      echo "⚠️  Command was unsuccesful or you canceled it"
+      break
+    fi
+
+    i+=1
+  done
+}

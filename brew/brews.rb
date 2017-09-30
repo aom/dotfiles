@@ -61,7 +61,10 @@ end
 
 brew 'git'
 
-brew ['postgresql', 'redis', 'mongodb']
+brew 'awscli'
+brew 'google-cloud-sdk'
+
+brew ['postgresql', 'redis', 'mongodb', 'sqlite']
 
 brew 'imagemagick'
 
@@ -73,6 +76,7 @@ brew 'yle-dl'
 #system_verbose 'sudo brew tap homebrew/dupes'
 brew 'rsync'
 
+brew 'curl'
 brew 'wget'
 brew 'heroku-toolbelt'
 
