@@ -172,7 +172,7 @@ confirm 'Installing brews from homebrew next'
 system 'ruby brew/brews.rb'
 puts
 
-confirm 'Finally linking your own dotfiles'
+confirm 'Linking your own dotfiles'
 
 files = [
   '.gitconfig',
@@ -190,7 +190,15 @@ end
 
 puts "OK. Listing symlinks in #{ENV['HOME']}"
 
-system("ls -l `find $HOME  -maxdepth 1 -type l -print`")
+system('ls -l `find $HOME  -maxdepth 1 -type l -print`')
+
+confirm 'Linking your own oh-my-zsh themes'
+
+[
+  'mika'
+].each do |theme|
+  system("ln -s #{Dir.pwd}/themes/#{theme}.zsh-theme #{ENV['HOME']}/.oh-my-zsh/themes/#{theme}.zsh-theme")
+end
 
 puts
 puts '❤️ Done!'
