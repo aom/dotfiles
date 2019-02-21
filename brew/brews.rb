@@ -84,6 +84,9 @@ brew 'httpie'
 
 brew 'htop-osx'
 
+# Awesome fuzzy command line search
+brew 'fzf'
+
 puts 'Setting suid for htop'
 system_verbose 'sudo chown root:wheel `which htop`'
 system_verbose 'sudo chmod u+s `which htop`'

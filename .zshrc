@@ -80,7 +80,7 @@ ulimit -n 4096
 # go
 
 export GOPATH=$HOME/gocode
-export PATH="$PATH:$HOME/gocode/bin" # Add RVM to PATH for scripting
+export PATH="$PATH:$HOME/gocode/bin"
 
 # Import
 
@@ -98,3 +98,5 @@ export DOCKER_ID_USER="aarreoskari"
 # Docker Machine
 
 # eval $(docker-machine env vm)
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
