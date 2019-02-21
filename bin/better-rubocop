@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+
+if [ -e "$HOME/.rvm" ] && type rvm > /dev/null 2>&1; then
+  rvmcop=/Users/mika/.rvm/gems/`rvm current`/wrappers/rubocop
+  if [ ! -e $rvmcop ]; then
+    echo "Rubocop shim failed. Try: rvm @global do gem install rubocop"
+    exit 0
+  fi
+  exec $rvmcop $@
+else
+  exec $HOME/.rbenv/shims/rubocop $@
+fi
