@@ -102,6 +102,27 @@ color-me-rainbow () {
 alias chx="chmod u+x $@"
 alias chxg="chmod +x $@"
 
+# loop
+
+loop () {
+  while [ 0 ]
+  do
+    $@
+    sleep ${SEC:-1}
+  done
+}
+
+# loop
+
+loop-and-clear () {
+  while [ 0 ]
+  do
+    $@
+    sleep 3
+    clear
+  done
+}
+
 # sync git ignored files from another computer
 
 sync-code-repo () {
