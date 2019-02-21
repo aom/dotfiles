@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+
+require 'webrick'
+
+server =
+  WEBrick::HTTPServer.new(
+    Port: 8000,
+    BindAdress: '0.0.0.0',
+    DocumentRoot: Dir.pwd
+  )
+
+# server.mount_proc '/' do |req, res|
+#   res.body = "lol"
+# end
+
+server.start
