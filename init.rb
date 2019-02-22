@@ -99,6 +99,12 @@ system 'apm install sync-settings'
 confirm 'Atom will ask sync-settings Token and Gist Id. You can do this later.'
 puts
 
+puts '🍎 -- Install Sublime'
+system 'open https://www.sublimetext.com/3'
+confirm 'Download and install manually'
+puts
+system 'ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl'
+
 puts '🍎 -- Install IntelliJ IDEA'
 system 'open https://www.jetbrains.com/idea/download/download-thanks.html?platform=mac'
 confirm 'Download and install manually'
@@ -141,6 +147,11 @@ puts
 
 puts '🍎 -- Install Postico:'
 system 'open https://eggerapps.at/postico/download/'
+confirm 'Download and install manually'
+puts
+
+puts '🍎 -- Install Robomongo:'
+system 'open https://robomongo.org/download'
 confirm 'Download and install manually'
 puts
 
