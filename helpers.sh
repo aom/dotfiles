@@ -154,3 +154,7 @@ sync-code-repo () {
     i+=1
   done
 }
+
+# Fast grep
+
+alias -g G='|grep'
