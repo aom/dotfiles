@@ -1,5 +1,5 @@
 [core]
-	editor = subl -n -w
+	editor = nano
 	autocrlf = input
 	excludesfile = /Users/mika/dotfiles/.gitignore_global
 [user]
