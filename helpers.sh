@@ -148,3 +148,7 @@ sync-code-repo () {
 # Fast grep
 
 alias -g G='|grep'
+
+# Fast less
+
+alias -g L='|less -N'
