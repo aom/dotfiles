@@ -2,16 +2,6 @@
 
 autoload -U add-zsh-hook
 
-load-nvmrc() {
-     # check file exists, is regular file and is readable:
-     if [[ -f .nvmrc && -r .nvmrc ]]; then
-       nvm use
-     elif [[ -f package.json ]]; then
-     #  nvm use stable
-     fi
-}
-add-zsh-hook chpwd load-nvmrc
-
 # webserver
 
 webserver () {

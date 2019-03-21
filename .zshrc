@@ -47,10 +47,10 @@ else
   export EDITOR='subl'
 fi
 
-# nvm - Node version manager
+# Load nodenv automatically by appending
+# the following to ~/.zshrc:
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+eval "$(nodenv init -)"
 
 # rvm - Ruby version manager
 
