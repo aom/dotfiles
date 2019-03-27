@@ -14,18 +14,22 @@
 	lbrv = branch -lvvv
 	gren = grep -n
 	lg = log -p
-	staged = diff --cached
+	staged = diff --staged
 	cached = diff --cached
 	unstaged = diff
 	both = diff HEAD
 	oneline = log --pretty=oneline
 	amend = commit --amend
 	rull = pull --rebase
+	lush = push --force-with-lease
+	upush = push -u origin HEAD
 	cp = cherry-pick -x
 	ch = cherry -v
 	fetcha = fetch --all
 	sh = stash
 	shp = stash pop
+	rbc = rebase --continue
+	rba = rebase --abort
 [color]
 	ui = true
 	branch = auto
