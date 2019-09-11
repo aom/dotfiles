@@ -145,6 +145,16 @@ sync-code-repo () {
   done
 }
 
+#
+
+loop-cmd () {
+  while true
+  do
+    $@
+    sleep ${SLEEP:-1}
+  done
+}
+
 # Fast grep
 
 alias -g G='|grep'
