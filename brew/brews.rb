@@ -94,6 +94,10 @@ brew 'htop-osx'
 # Awesome fuzzy command line search
 brew 'fzf'
 
+# Newer nano is better and needed for nanorc that is the second line
+brew 'nano'
+git clone git@github.com:scopatz/nanorc.git ~/.nano
+
 puts 'Setting suid for htop'
 system_verbose 'sudo chown root:wheel `which htop`'
 system_verbose 'sudo chmod u+s `which htop`'
