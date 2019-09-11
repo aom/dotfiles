@@ -178,7 +178,6 @@ end
 puts
 
 if yes_or_no '🔴 Do you want to install VM tools?'
-
   puts '🍎 -- Install VirtualBox:'
   system 'open https://www.virtualbox.org/wiki/Downloads'
   confirm 'Download and install manually'
@@ -189,39 +188,10 @@ if yes_or_no '🔴 Do you want to install VM tools?'
   confirm 'Login, download and install manually'
   puts
 
-  puts '🍎 -- Install vagrant:'
-  system 'open https://www.vagrantup.com/downloads.html'
-  confirm 'Download and install manually'
-  system 'kontena plugin install vagrant'
-  system 'vagrant plugin install vagrant-hostsupdater'
-  system 'vagrant plugin install vagrant-rsync'
-  system 'vagrant plugin install vagrant-scp'
-  system 'vagrant plugin install vagrant-triggers'
-  system 'vagrant plugin install vagrant-ca-certificates'
-  puts
-
   puts '🍎 -- Install Docker for Mac'
   system 'curl -O https://download.docker.com/mac/stable/Docker.dmg'
   system 'open Docker.dmg'
   system 'rm Docker.dmg'
-  puts
-end
-
-if yes_or_no '🔴 Do you want to install experimental dev tools?'
-  puts "Not working :("
-  next
-  system 'mkdir ~/code/bin'
-
-  puts '🍎 -- Install kung:'
-  system 'git clone git@github.com:matti/kung.git ~/code/bin/kung'
-  system 'cat ~/code/bin/kung/README.md'
-  confirm 'Install manually'
-  puts
-
-  puts '🍎 -- Install kontena-rocks:'
-  system 'git clone git@github.com:matti/kontena-rocks.git ~/code/bin/kontena-rocks'
-  system 'cat ~/code/bin/kontena-rocks/README.md'
-  confirm 'Install manually'
   puts
 end
 
