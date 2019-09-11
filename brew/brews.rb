@@ -61,6 +61,13 @@ end
 
 brew 'git'
 
+brew 'nodenv'
+curl -fsSL https://github.com/nodenv/nodenv-installer/raw/master/bin/nodenv-doctor | bash
+
+brew 'rbenv'
+rbenv init i
+curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-doctor | bash
+
 brew 'awscli'
 brew 'google-cloud-sdk'
 

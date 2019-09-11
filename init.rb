@@ -73,18 +73,20 @@ puts '🍎 -- Install Homebrew'
 system '/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"'
 puts
 
-puts '🍎 -- Install nvm'
-system 'curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.4/install.sh | bash'
+if false
+  puts '🍎 -- Install nvm'
+  system 'curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.4/install.sh | bash'
 
-puts '🍎 -- Install stable nodejs and yarn'
-system 'nvm install stable'
-system 'npm install yarn -g'
-puts
+  puts '🍎 -- Install stable nodejs and yarn'
+  system 'nvm install stable'
+  system 'npm install yarn -g'
+  puts
 
-puts '🍎 -- Install rvm'
-system 'curl -sSL https://get.rvm.io | bash'
-system 'rvm install'
-puts
+  puts '🍎 -- Install rvm'
+  system 'curl -sSL https://get.rvm.io | bash'
+  system 'rvm install'
+  puts
+end
 
 puts '🍎 -- Install scm breeze'
 system 'git clone git://github.com/scmbreeze/scm_breeze.git ~/.scm_breeze'
