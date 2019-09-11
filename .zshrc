@@ -54,10 +54,12 @@ eval "$(nodenv init -)"
 
 # rvm - Ruby version manager
 
-export PATH="$PATH:$HOME/.rvm/bin"
-export PATH="$PATH:/Users/mika/.rvm/gems/ruby-2.2.0/bin/scss-lint"
+# export PATH="$PATH:$HOME/.rvm/bin"
+# export PATH="$PATH:/Users/mika/.rvm/gems/ruby-2.2.0/bin/scss-lint"
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+# [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+
+eval "$(rbenv init -)"
 
 # scm_breeze – Git shorthands
 
