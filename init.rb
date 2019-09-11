@@ -127,11 +127,6 @@ system 'open https://pqrs.org/osx/karabiner/'
 confirm 'Download and install manually'
 puts
 
-puts '🍎 -- Install Geekbench 4:'
-system 'open https://www.geekbench.com/download/mac/'
-confirm 'Download and install manually'
-puts
-
 puts '🍎 -- Install Freedome:'
 system 'open https://download.sp.f-secure.com/freedome/installer/Freedome.dmg'
 confirm 'Download and install manually'
@@ -154,6 +149,11 @@ puts
 
 puts '🍎 -- Install p4merge:'
 system 'open https://www.perforce.com/products/helix-core-apps/merge-diff-tool-p4merge'
+confirm 'Download and install manually'
+puts
+
+puts '🍎 -- Install Robomongo:'
+system 'open https://robomongo.org/download'
 confirm 'Download and install manually'
 puts
 
