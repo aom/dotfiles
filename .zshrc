@@ -101,6 +101,11 @@ export DOCKER_ID_USER="aarreoskari"
 
 # eval $(docker-machine env vm)
 
+# Kubernetes aliases
+
+alias k='kubectl'
+alias kg='kubectl get'
+
 # iTerm shell integration
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
@@ -109,5 +114,7 @@ if [ -f '/Users/mika/code/bin/google-cloud-sdk/path.zsh.inc' ]; then source '/Us
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/mika/code/bin/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/mika/code/bin/google-cloud-sdk/completion.zsh.inc'; fi
+
+# Fuzzyness
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

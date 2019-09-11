@@ -99,12 +99,6 @@ system 'apm install sync-settings'
 confirm 'Atom will ask sync-settings Token and Gist Id. You can do this later.'
 puts
 
-puts '🍎 -- Install Sublime'
-system 'open https://www.sublimetext.com/3'
-confirm 'Download and install manually'
-puts
-system 'ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl'
-
 puts '🍎 -- Install IntelliJ IDEA'
 system 'open https://www.jetbrains.com/idea/download/download-thanks.html?platform=mac'
 confirm 'Download and install manually'
@@ -125,8 +119,8 @@ system 'open https://pqrs.org/osx/karabiner/'
 confirm 'Download and install manually'
 puts
 
-puts '🍎 -- Install Secure Pipes:'
-system 'open https://www.opoet.com/pyro/index.php'
+puts '🍎 -- Install Geekbench 4:'
+system 'open https://www.geekbench.com/download/mac/'
 confirm 'Download and install manually'
 puts
 
@@ -150,8 +144,8 @@ system 'open https://eggerapps.at/postico/download/'
 confirm 'Download and install manually'
 puts
 
-puts '🍎 -- Install Robomongo:'
-system 'open https://robomongo.org/download'
+puts '🍎 -- Install p4merge:'
+system 'open https://www.perforce.com/products/helix-core-apps/merge-diff-tool-p4merge'
 confirm 'Download and install manually'
 puts
 
@@ -206,6 +200,8 @@ if yes_or_no '🔴 Do you want to install VM tools?'
 end
 
 if yes_or_no '🔴 Do you want to install experimental dev tools?'
+  puts "Not working :("
+  next
   system 'mkdir ~/code/bin'
 
   puts '🍎 -- Install kung:'
