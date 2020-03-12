@@ -52,12 +52,16 @@ fi
 
 eval "$(nodenv init -)"
 
+nodenv shell 10.15.3
+
 # rvm - Ruby version manager
 
 # export PATH="$PATH:$HOME/.rvm/bin"
 # export PATH="$PATH:/Users/mika/.rvm/gems/ruby-2.2.0/bin/scss-lint"
 
 # [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+
+# rbenv - Ruby env manager
 
 eval "$(rbenv init -)"
 
