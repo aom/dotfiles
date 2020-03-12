@@ -76,7 +76,7 @@ export LANG=fi_FI.UTF-8
 
 # Plugins
 
-plugins=(git osx ruby rake)
+plugins=(git osx ruby kubetail)
 
 # Plugins config
 
