@@ -127,3 +127,7 @@ if [ -f '/Users/mika/code/bin/google-cloud-sdk/completion.zsh.inc' ]; then sourc
 # Fuzzyness
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+alias k='kubectl'
+alias kg='kubectl get'
+alias kd='kubectl delete'
