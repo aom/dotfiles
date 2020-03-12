@@ -111,6 +111,11 @@ alias k='kubectl'
 alias kg='kubectl get'
 
 # iTerm shell integration
+function iterm2_print_user_vars() {
+  iterm2_set_user_var k8s_context $(kubectl config current-context)
+  iterm2_set_user_var k8s_namespace $(kubectl config view --minify --output 'jsonpath={..namespace}')
+}
+
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # The next line updates PATH for the Google Cloud SDK.
