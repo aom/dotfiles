@@ -162,3 +162,7 @@ alias -g G='|grep'
 # Fast less
 
 alias -g L='|less -N'
+
+# Remove merged branches
+
+alias git-cleanup-branches='git branch --merged | egrep -v "^\*|^\s*master$|^\s*dev$|^\s*staging$|^\s*origin\/" | xargs git branch -d'
