@@ -4,7 +4,11 @@ def system_verbose(cmd)
   puts cmd
   success = system(cmd)
 
-  raise 'command was not executed successfully' unless success
+  return if success
+
+  puts 'command was not executed successfully'
+  puts '💋 Continue or ^C'
+  gets
 end
 
 def brew_reinstall(package, opts = {})
@@ -62,16 +66,12 @@ end
 brew 'git'
 
 brew 'nodenv'
-curl -fsSL https://github.com/nodenv/nodenv-installer/raw/master/bin/nodenv-doctor | bash
 
 brew 'rbenv'
-rbenv init i
-curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-doctor | bash
 
 brew 'awscli'
-brew 'google-cloud-sdk'
 
-brew ['postgresql', 'redis', 'mongodb', 'sqlite']
+brew ['postgresql', 'redis', 'sqlite']
 
 brew 'imagemagick'
 
@@ -85,7 +85,6 @@ brew 'rsync'
 
 brew 'curl'
 brew 'wget'
-brew 'heroku-toolbelt'
 
 brew 'httpie'
 
@@ -93,10 +92,11 @@ brew 'htop-osx'
 
 # Awesome fuzzy command line search
 brew 'fzf'
+brew 'kubectx'
 
 # Newer nano is better and needed for nanorc that is the second line
 brew 'nano'
-git clone git@github.com:scopatz/nanorc.git ~/.nano
+system_verbose 'git clone https://github.com/scopatz/nanorc.git ~/.nano'
 
 puts 'Setting suid for htop'
 system_verbose 'sudo chown root:wheel `which htop`'

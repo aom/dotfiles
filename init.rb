@@ -228,4 +228,6 @@ confirm 'Linking your own oh-my-zsh themes'
 end
 
 puts
+puts 'Run ./post-init.rb in a new terminal session to setup nodenv and rbenv'
+puts
 puts '❤️ Done!'
