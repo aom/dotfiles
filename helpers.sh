@@ -166,3 +166,8 @@ alias -g L='|less -N'
 # Remove merged branches
 
 alias git-cleanup-branches='git branch --merged | egrep -v "^\*|^\s*master$|^\s*dev$|^\s*staging$|^\s*origin\/" | xargs git branch -d'
+
+git-edit-branch () {
+  first_commit_sha=$(git log master..HEAD --oneline | tail -1 | head -c 6)
+  git rebase -i ${first_commit_sha}^
+}
