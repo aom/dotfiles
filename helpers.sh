@@ -168,6 +168,7 @@ alias -g L='|less -N'
 alias git-cleanup-branches='git branch --merged | egrep -v "^\*|^\s*master$|^\s*dev$|^\s*staging$|^\s*origin\/" | xargs git branch -d'
 
 git-edit-branch () {
-  first_commit_sha=$(git log master..HEAD --oneline | tail -1 | head -c 6)
+  base_branch=${1-master}
+  first_commit_sha=$(git log ${base_branch}..HEAD --oneline | tail -1 | head -c 6)
   git rebase -i ${first_commit_sha}^
 }
