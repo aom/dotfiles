@@ -131,3 +131,5 @@ if [ -f '/Users/mika/code/bin/google-cloud-sdk/completion.zsh.inc' ]; then sourc
 alias k='kubectl'
 alias kg='kubectl get'
 alias kd='kubectl delete'
+
+alias nano='LANG=en_GB.UTF-8 /usr/local/bin/nano'
