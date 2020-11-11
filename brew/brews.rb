@@ -42,11 +42,13 @@ def brew_install(package, opts = {})
   system_verbose(install_cmd)
 
   if opts[:loads]
-    link_cmd = "ln -sfv /usr/local/opt/#{package}/*.plist ~/Library/LaunchAgents"
-    system_verbose(link_cmd)
+    services_start_cmd = "brew services start #{package}"
+    system_verbose(services_start_cmd)
+  end
 
-    launchctl_load_cmd = "launchctl load ~/Library/LaunchAgents/homebrew.mxcl.#{package}.plist"
-    system_verbose(launchctl_load_cmd)
+  if opts[:links]
+    link_cmd = "brew link --force #{package}"
+    system_verbose(link_cmd)
   end
 
   puts
@@ -69,9 +71,15 @@ brew 'nodenv'
 
 brew 'rbenv'
 
+brew 'yarn'
+
 brew 'awscli'
 
-brew ['postgresql', 'redis', 'sqlite']
+brew 'postgresql', loads: true, links: true
+
+brew 'redis', loads: true
+
+brew 'sqlite'
 
 brew 'imagemagick'
 
