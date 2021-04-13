@@ -132,4 +132,15 @@ alias k='kubectl'
 alias kg='kubectl get'
 alias kd='kubectl delete'
 
+# Make nano speak English instead of Finnish
 alias nano='LANG=en_GB.UTF-8 /usr/local/bin/nano'
+
+# pyenv
+eval "$(pyenv init -)"
+
+# added by Snowflake SnowSQL installer v1.2
+export PATH=/Applications/SnowSQL.app/Contents/MacOS:$PATH
+
+# Faster rubocop via daemon
+export PATH="/usr/local/bin/rubocop-daemon-wrapper:$PATH"
+export RUBOCOP_DAEMON_USE_BUNDLER=true
