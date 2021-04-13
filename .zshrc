@@ -144,3 +144,7 @@ export PATH=/Applications/SnowSQL.app/Contents/MacOS:$PATH
 # Faster rubocop via daemon
 export PATH="/usr/local/bin/rubocop-daemon-wrapper:$PATH"
 export RUBOCOP_DAEMON_USE_BUNDLER=true
+
+# Terraform
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/terraform terraform
