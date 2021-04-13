@@ -75,7 +75,7 @@ brew 'yarn'
 
 brew 'awscli'
 
-brew 'postgresql', loads: true, links: true
+brew 'postgresql@11', loads: true, links: true
 
 brew 'redis', loads: true
 
