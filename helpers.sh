@@ -172,3 +172,7 @@ git-edit-branch () {
   first_commit_sha=$(git log ${base_branch}..HEAD --oneline | tail -1 | head -c 6)
   git rebase -i ${first_commit_sha}^
 }
+
+edit-gem () {
+  subl `bundle info ${1} | grep Path: | cut -d ':' -f2`
+}
