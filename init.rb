@@ -70,7 +70,7 @@ confirm '🔴 HOX! Login and start syncing since it\'ll take time'
 puts
 
 puts '🍎 -- Install Homebrew'
-system '/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"'
+system '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"'
 puts
 
 if false
@@ -94,13 +94,6 @@ system '~/.scm_breeze/install.sh'
 system 'mkdir ~/code'
 puts
 
-puts '🍎 -- Install atom'
-system 'open https://atom.io/download/mac'
-confirm 'Open Atom after moving it to Applications and install Shell Commands'
-system 'apm install sync-settings'
-confirm 'Atom will ask sync-settings Token and Gist Id. You can do this later.'
-puts
-
 puts '🍎 -- Install Sublime'
 system 'open https://www.sublimetext.com/3'
 confirm 'Download and install manually'
@@ -117,23 +110,15 @@ system 'open https://www.google.com/chrome/index.html'
 confirm 'Download and install manually'
 puts
 
-puts '🍎 -- Install Flowdock'
-system 'open https://flowdock-resources.s3.amazonaws.com/mac/Flowdock.zip'
-confirm 'Download and install manually'
-puts
-
-puts '🍎 -- Install Karabiner Elements:'
-system 'open https://pqrs.org/osx/karabiner/'
-confirm 'Download and install manually'
-puts
+if false
+  puts '🍎 -- Install Karabiner Elements:'
+  system 'open https://pqrs.org/osx/karabiner/'
+  confirm 'Download and install manually'
+  puts
+end
 
 puts '🍎 -- Install Freedome:'
 system 'open https://download.sp.f-secure.com/freedome/installer/Freedome.dmg'
-confirm 'Download and install manually'
-puts
-
-puts '🍎 -- Install Kontena CLI:'
-system 'open https://github.com/kontena/kontena/releases/latest'
 confirm 'Download and install manually'
 puts
 
@@ -147,11 +132,6 @@ system 'open https://eggerapps.at/postico/download/'
 confirm 'Download and install manually'
 puts
 
-puts '🍎 -- Install p4merge:'
-system 'open https://www.perforce.com/products/helix-core-apps/merge-diff-tool-p4merge'
-confirm 'Download and install manually'
-puts
-
 puts '🍎 -- Install Robomongo:'
 system 'open https://robomongo.org/download'
 confirm 'Download and install manually'
@@ -162,20 +142,24 @@ system 'open https://cloud.google.com/sdk/docs/quickstart-mac-os-x'
 confirm 'Download and install manually to a specific place on disk'
 puts
 
-puts '🍎 -- Install Java:'
-system 'open https://www.java.com/en/download/mac_download.jsp'
-confirm 'Download and install manually'
-puts
-
-puts '🍎 -- Install ngrok:'
-system 'open https://ngrok.com/download'
-confirm 'Download and unzip to downloads'
-system 'mv ~/Downloads/ngrok /usr/local/bin/ngrok'
-if yes_or_no 'Do ngrok authentication now?'
-  authtoken = answer 'Type ngrok authtoken'
-  system "ngrok authtoken #{authtoken}"
+if false
+  puts '🍎 -- Install Java:'
+  system 'open https://www.java.com/en/download/mac_download.jsp'
+  confirm 'Download and install manually'
+  puts
 end
-puts
+
+if false
+  puts '🍎 -- Install ngrok:'
+  system 'open https://ngrok.com/download'
+  confirm 'Download and unzip to downloads'
+  system 'mv ~/Downloads/ngrok /usr/local/bin/ngrok'
+  if yes_or_no 'Do ngrok authentication now?'
+    authtoken = answer 'Type ngrok authtoken'
+    system "ngrok authtoken #{authtoken}"
+  end
+  puts
+end
 
 if yes_or_no '🔴 Do you want to install VM tools?'
   puts '🍎 -- Install VirtualBox:'
