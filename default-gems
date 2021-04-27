@@ -1,0 +1,11 @@
+bundler
+rubocop
+rubocop-daemon
+rubocop-rails
+rubocop-rake
+rubocop-rspec
+rubocop-performance
+solargraph
+krane
+ejson
+openid_connect

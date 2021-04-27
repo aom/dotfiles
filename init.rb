@@ -198,6 +198,12 @@ files.each do |file|
   system("rm -f #{ENV['HOME']}/#{file}")
   system("ln -s #{Dir.pwd}/#{file} #{ENV['HOME']}/#{file}")
 end
+puts
+
+puts "Linking default-gems to install for each new rbenv ruby version"
+system("ln -s #{Dir.pwd}/rbenv/plugins $(rbenv root)/plugins")
+system("ln -s #{Dir.pwd}/default-gems $(rbenv root)/rbenv-default-gems")
+puts
 
 puts "OK. Listing symlinks in #{ENV['HOME']}"
 
