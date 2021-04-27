@@ -180,7 +180,7 @@ if yes_or_no '🔴 Do you want to install VM tools?'
 end
 
 confirm 'Installing brews from homebrew next'
-system 'ruby brew/brews.rb'
+system 'brew bundle'
 puts
 
 confirm 'Linking your own dotfiles'
