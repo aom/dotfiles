@@ -101,10 +101,6 @@ export PATH="$PATH:`yarn global bin`"
 
 export DOCKER_ID_USER="aarreoskari"
 
-# Docker Machine
-
-# eval $(docker-machine env vm)
-
 # Kubernetes aliases
 
 alias k='kubectl'
@@ -112,8 +108,10 @@ alias kg='kubectl get'
 
 # iTerm shell integration
 function iterm2_print_user_vars() {
-  iterm2_set_user_var k8s_context $(kubectl config current-context)
-  iterm2_set_user_var k8s_namespace $(kubectl config view --minify --output 'jsonpath={..namespace}')
+  iterm2_set_user_var k8s_context '<context>'
+  iterm2_set_user_var k8s_namespace '<namespace>'
+  # iterm2_set_user_var k8s_context $(kubectl config current-context)
+  # iterm2_set_user_var k8s_namespace $(kubectl config view --minify --output 'jsonpath={..namespace}')
 }
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
@@ -137,9 +135,6 @@ alias nano='LANG=en_GB.UTF-8 /usr/local/bin/nano'
 
 # pyenv
 eval "$(pyenv init -)"
-
-# added by Snowflake SnowSQL installer v1.2
-export PATH=/Applications/SnowSQL.app/Contents/MacOS:$PATH
 
 # Faster rubocop via daemon
 export PATH="/usr/local/bin/rubocop-daemon-wrapper:$PATH"
