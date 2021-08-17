@@ -1,5 +1,6 @@
 [core]
-	editor = nano
+#	editor = nano
+  editor = code --wait
 	autocrlf = input
 	excludesfile = /Users/mika/dotfiles/.gitignore_global
 [user]
@@ -43,28 +44,15 @@
 [interactive]
 	singlekey = true
 
-# P4MERGE
+[diff]
+  tool = vscode
+[difftool "vscode"]
+  cmd = code --wait --diff $LOCAL $REMOTE
 [merge]
-    tool = lolmerge # This will be the default merge tool invoked by git mergetool.
-[mergetool]
-  keepBackup = false
-  keepTemporaries = false
-[mergetool "lolmerge"]
-  # I put p4merge and DiffMerge in /Applications/Utilities, but you might have them in /Applications.
-  # cmd = /opt/homebrew-cask/Caskroom/p4merge/2014.2/p4merge.app/Contents/Resources/launchp4merge \
-  cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge \
-      "$PWD/$BASE" \
-      "$PWD/$REMOTE" \
-      "$PWD/$LOCAL" \
-      "$PWD/$MERGED"
-  keepBackup = false
-  trustExitCode = false
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Users/mika/Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+  tool = vscode
+[mergetool "vscode"]
+  cmd = code --wait $MERGED
+
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
