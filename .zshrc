@@ -56,14 +56,17 @@ nodenv shell 10.15.3
 
 # rvm - Ruby version manager
 
-# export PATH="$PATH:$HOME/.rvm/bin"
-# export PATH="$PATH:/Users/mika/.rvm/gems/ruby-2.2.0/bin/scss-lint"
+export PATH="$PATH:$HOME/.rvm/bin"
 
 # [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 # rbenv - Ruby env manager
 
-eval "$(rbenv init -)"
+# eval "$(rbenv init -)"
+
+# pyenv
+
+# eval "$(pyenv init -)"
 
 # scm_breeze – Git shorthands
 
@@ -133,12 +136,9 @@ alias kd='kubectl delete'
 # Make nano speak English instead of Finnish
 alias nano='LANG=en_GB.UTF-8 /usr/local/bin/nano'
 
-# pyenv
-eval "$(pyenv init -)"
-
 # Faster rubocop via daemon
 export PATH="/usr/local/bin/rubocop-daemon-wrapper:$PATH"
-export RUBOCOP_DAEMON_USE_BUNDLER=true
+# export RUBOCOP_DAEMON_USE_BUNDLER=false
 
 # Terraform
 autoload -U +X bashcompinit && bashcompinit
