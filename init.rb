@@ -46,7 +46,7 @@ if ENV['SHELL'] != '/bin/zsh'
   puts 'return to this script.'
   confirm
 
-  system 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"'
+  system 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
 
   puts '🍎 -- Restart the terminal to continue with zsh if you want'
   confirm
@@ -182,6 +182,8 @@ end
 confirm 'Installing brews from homebrew next'
 system 'brew bundle'
 puts
+
+\curl -sSL https://get.rvm.io | bash
 
 confirm 'Linking your own dotfiles'
 

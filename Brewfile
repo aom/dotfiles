@@ -5,15 +5,12 @@ brew 'wget'
 brew 'httpie'
 
 brew 'nodenv'
-brew 'rbenv'
 
 brew 'awscli'
 
 brew 'postgresql@12'
 brew 'redis'
 brew 'sqlite'
-
-brew 'imagemagick@6'
 
 brew 'ffmpeg'
 brew 'youtube-dl'
@@ -25,3 +22,5 @@ brew 'kubectx'
 brew 'htop-osx'
 
 brew 'nano'
+
+brew 'gpg'

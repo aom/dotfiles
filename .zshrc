@@ -20,8 +20,13 @@ export DOTFILES=$HOME/dotfiles
 
 # homebrew
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-export PATH="/usr/local/sbin:$PATH"
+if [[ `uname -m` == 'arm64' ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+else
+  export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+  export PATH="/usr/local/sbin:$PATH"
+fi
+
 
 source $ZSH/oh-my-zsh.sh
 
