@@ -57,8 +57,6 @@ fi
 
 eval "$(nodenv init -)"
 
-nodenv shell 16.10.0
-
 # rvm - Ruby version manager
 
 export PATH="$PATH:$HOME/.rvm/bin"
