@@ -3,6 +3,7 @@ brew 'rsync'
 brew 'curl'
 brew 'wget'
 brew 'httpie'
+brew 'go'
 
 brew 'nodenv'
 
