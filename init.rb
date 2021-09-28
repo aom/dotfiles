@@ -190,7 +190,6 @@ confirm 'Linking your own dotfiles'
 files = [
   '.gitconfig',
   '.nanorc',
-  '.zshrc',
   '.ackrc',
   '.scmbrc',
   '.ansible.cfg'
@@ -200,6 +199,13 @@ files.each do |file|
   system("rm -f #{ENV['HOME']}/#{file}")
   system("ln -s #{Dir.pwd}/#{file} #{ENV['HOME']}/#{file}")
 end
+
+puts
+
+puts "Creating .zshrc file that sources good config from dotfiles"
+system("rm -f #{ENV['HOME']}/.zshrc")
+system("echo 'source ~/#{Dir.pwd}/.zshrc' > #{ENV['HOME']}/.zshrc")
+
 puts
 
 puts "Linking default-gems to install for each new rbenv ruby version"
