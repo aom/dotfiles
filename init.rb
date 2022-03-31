@@ -26,6 +26,26 @@ def answer(message)
   gets
 end
 
+if ENV['SHELL'] != '/bin/zsh'
+  puts '🍎 -- Install Oh My Zsh'
+  puts 'HOX! It will open zsh at the end. Exit that shell to'
+  puts 'return to this script.'
+  confirm
+
+  system 'sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
+
+  confirm 'Linking your own oh-my-zsh themes'
+
+  [
+    'mika'
+  ].each do |theme|
+    system("ln -s #{Dir.pwd}/themes/#{theme}.zsh-theme #{ENV['HOME']}/.oh-my-zsh/themes/#{theme}.zsh-theme")
+  end
+
+  puts '🍎 -- Restart the terminal to continue with zsh if you want'
+  confirm
+end
+
 puts 'Install these before running this:'
 %w[
   XCode
@@ -39,18 +59,6 @@ confirm
 puts '🍎 -- Install xcode command line tools for homebrew:'
 system('xcode-select --install')
 puts
-
-if ENV['SHELL'] != '/bin/zsh'
-  puts '🍎 -- Install Oh My Zsh'
-  puts 'HOX! It will open zsh at the end. Exit that shell to'
-  puts 'return to this script.'
-  confirm
-
-  system 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
-
-  puts '🍎 -- Restart the terminal to continue with zsh if you want'
-  confirm
-end
 
 puts '🍎 -- Install iTerm 2:'
 system 'open https://www.iterm2.com/downloads.html'
@@ -216,14 +224,6 @@ puts
 puts "OK. Listing symlinks in #{ENV['HOME']}"
 
 system('ls -l `find $HOME  -maxdepth 1 -type l -print`')
-
-confirm 'Linking your own oh-my-zsh themes'
-
-[
-  'mika'
-].each do |theme|
-  system("ln -s #{Dir.pwd}/themes/#{theme}.zsh-theme #{ENV['HOME']}/.oh-my-zsh/themes/#{theme}.zsh-theme")
-end
 
 puts
 puts 'Run ./post-init.rb in a new terminal session to setup nodenv and rbenv'

@@ -16,34 +16,26 @@ HIST_STAMPS="yyyy-mm-dd"
 
 # User configuration
 
+hardware=$(uname -m)
+
 export DOTFILES=$HOME/dotfiles
 
 # homebrew
-
-if [[ `uname -m` == 'arm64' ]]; then
+if [[ $hardware == 'arm64' ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 else
   export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
   export PATH="/usr/local/sbin:$PATH"
 fi
 
+export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
 
 source $ZSH/oh-my-zsh.sh
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias dotfiles="subl ~/dotfiles"
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -61,7 +53,7 @@ eval "$(nodenv init -)"
 
 export PATH="$PATH:$HOME/.rvm/bin"
 
-# [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 # rbenv - Ruby env manager
 
@@ -137,7 +129,11 @@ alias kg='kubectl get'
 alias kd='kubectl delete'
 
 # Make nano speak English instead of Finnish
-alias nano='LANG=en_GB.UTF-8 /usr/local/bin/nano'
+if [[ $hardware == 'arm64' ]]; then
+  alias nano='LANG=en_GB.UTF-8 /opt/homebrew/bin/nano'
+else
+  alias nano='LANG=en_GB.UTF-8 /usr/local/bin/nano'
+fi
 
 # Faster rubocop via daemon
 export PATH="/usr/local/bin/rubocop-daemon-wrapper:$PATH"
